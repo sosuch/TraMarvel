@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kr.co.ezenac.sosuch.tramarvel.MainActivity">
+
+    <View
+        android:id="@+id/view_center"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true">
+    </View>
+
+    <View
+        android:id="@+id/view_above"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/view_center">
+    </View>
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/view_center">
+    </View>
+
+    <View
+        android:id="@+id/view_left"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/view_center">
+    </View>
+
+    <View
+        android:id="@+id/view_right"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/view_center">
+    </View>
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/view_left"
+        android:layout_toLeftOf="@id/view_above"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:text="처음하기"/>
+
+    <Button
+        android:id="@+id/btn_continue"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/view_left"
+        android:layout_toRightOf="@id/view_above"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:text="이어하기"/>
+
+    <Button
+        android:id="@+id/btn_option"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/view_left"
+        android:layout_toLeftOf="@id/view_above"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:text="환경설정"/>
+
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/view_left"
+        android:layout_toRightOf="@id/view_above"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:text="게임종료"/>
+
+</RelativeLayout>
