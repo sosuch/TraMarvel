@@ -2,6 +2,8 @@ package kr.co.ezenac.sosuch.tramarvel;
 
 
 import android.content.DialogInterface;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -51,9 +53,15 @@ public class JapanActivity extends AppCompatActivity {
         final Dice dice = new Dice();
         final Character character = new Character();
 
+        final SoundPool sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+
+        final int soundID = sp.load(this, R.raw.dice, 1);
+
         rl_dice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                sp.play(soundID, 1, 1, 0, 0, 0.5F);
 
                 dice.throwDice_2();
                 int sum = dice.getNumber_1() + dice.getNumber_2();
