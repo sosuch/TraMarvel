@@ -42,6 +42,27 @@ public class JapanActivity extends AppCompatActivity {
     @BindView(R.id.ch_22) ImageView ch_22;
     @BindView(R.id.ch_23) ImageView ch_23;
     @BindView(R.id.ch_24) ImageView ch_24;
+    @BindView(R.id.overray1) ImageView overray1;
+    @BindView(R.id.overray2) ImageView overray2;
+    @BindView(R.id.overray3) ImageView overray3;
+    @BindView(R.id.overray4) ImageView overray4;
+    @BindView(R.id.overray5) ImageView overray5;
+    @BindView(R.id.overray6) ImageView overray6;
+    @BindView(R.id.overray7) ImageView overray7;
+    @BindView(R.id.overray8) ImageView overray8;
+    @BindView(R.id.overray9) ImageView overray9;
+    @BindView(R.id.overray10) ImageView overray10;
+    @BindView(R.id.overray11) ImageView overray11;
+    @BindView(R.id.overray12) ImageView overray12;
+    @BindView(R.id.overray13) ImageView overray13;
+    @BindView(R.id.overray14) ImageView overray14;
+    @BindView(R.id.overray15) ImageView overray15;
+    @BindView(R.id.overray16) ImageView overray16;
+    @BindView(R.id.overray17) ImageView overray17;
+    @BindView(R.id.overray18) ImageView overray18;
+    @BindView(R.id.overray19) ImageView overray19;
+    @BindView(R.id.overray20) ImageView overray20;
+
     int selectedPos = 0;
 
 
@@ -53,15 +74,17 @@ public class JapanActivity extends AppCompatActivity {
         final Dice dice = new Dice();
         final Character character = new Character();
 
-        final SoundPool sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        final SoundPool sp = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
 
-        final int soundID = sp.load(this, R.raw.dice, 1);
+        final int dice_s = sp.load(this, R.raw.dice, 1);
+        final int money_s = sp.load(this, R.raw.money, 1);
+        final int select_s = sp.load(this, R.raw.select, 1);
 
         rl_dice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                sp.play(soundID, 1, 1, 0, 0, 0.5F);
+                sp.play(dice_s, 1, 1, 0, 0, 1);
 
                 dice.throwDice_2();
                 int sum = dice.getNumber_1() + dice.getNumber_2();
@@ -100,6 +123,7 @@ public class JapanActivity extends AppCompatActivity {
 
                 if (character.getLocation() == 1) {
                     ch_1.setVisibility(view.VISIBLE);
+                    overray1.setVisibility(view.VISIBLE);
 
                     final String items[] = {"특산물1","특산물2","특산물3"};
 
@@ -109,12 +133,15 @@ public class JapanActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             selectedPos = i;
+
+                            sp.play(select_s, 1, 1, 0, 0, 1.0F);
                         }
                     });
                     alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             //현금 차감, 특산물 증가
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
                         }
                     });
                     alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
@@ -126,102 +153,142 @@ public class JapanActivity extends AppCompatActivity {
 
                 } else {
                     ch_1.setVisibility(view.INVISIBLE);
+                    overray1.setVisibility(view.INVISIBLE);
 
                 }
                 if (character.getLocation() == 2) {
                     ch_2.setVisibility(view.VISIBLE);
+                    overray2.setVisibility(view.VISIBLE);
+
                 } else {
                     ch_2.setVisibility(view.INVISIBLE);
+                    overray2.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 3) {
                     ch_3.setVisibility(view.VISIBLE);
+                    overray3.setVisibility(view.VISIBLE);
                 } else {
                     ch_3.setVisibility(view.INVISIBLE);
+                    overray3.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 4) {
                     ch_4.setVisibility(view.VISIBLE);
+                    overray4.setVisibility(view.VISIBLE);
                 } else {
                     ch_4.setVisibility(view.INVISIBLE);
+                    overray4.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 5) {
                     ch_5.setVisibility(view.VISIBLE);
+                    overray5.setVisibility(view.VISIBLE);
                 } else {
                     ch_5.setVisibility(view.INVISIBLE);
+                    overray5.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 6) {
                     ch_6.setVisibility(view.VISIBLE);
+                    overray6.setVisibility(view.VISIBLE);
                 } else {
                     ch_6.setVisibility(view.INVISIBLE);
+                    overray6.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 7) {
                     ch_7.setVisibility(view.VISIBLE);
+                    overray7.setVisibility(view.VISIBLE);
                 } else {
                     ch_7.setVisibility(view.INVISIBLE);
+                    overray7.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 8) {
                     ch_8.setVisibility(view.VISIBLE);
+                    overray8.setVisibility(view.VISIBLE);
                 } else {
                     ch_8.setVisibility(view.INVISIBLE);
+                    overray8.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 9) {
                     ch_9.setVisibility(view.VISIBLE);
+                    overray9.setVisibility(view.VISIBLE);
                 } else {
                     ch_9.setVisibility(view.INVISIBLE);
+                    overray9.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 10) {
                     ch_10.setVisibility(view.VISIBLE);
+                    overray10.setVisibility(view.VISIBLE);
                 } else {
                     ch_10.setVisibility(view.INVISIBLE);
+                    overray10.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 11) {
                     ch_11.setVisibility(view.VISIBLE);
+                    overray11.setVisibility(view.VISIBLE);
                 } else {
                     ch_11.setVisibility(view.INVISIBLE);
+                    overray11.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 12) {
                     ch_12.setVisibility(view.VISIBLE);
+                    overray12.setVisibility(view.VISIBLE);
                 } else {
                     ch_12.setVisibility(view.INVISIBLE);
+                    overray12.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 13) {
                     ch_13.setVisibility(view.VISIBLE);
+                    overray13.setVisibility(view.VISIBLE);
                 } else {
                     ch_13.setVisibility(view.INVISIBLE);
+                    overray13.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 14) {
                     ch_14.setVisibility(view.VISIBLE);
+                    overray14.setVisibility(view.VISIBLE);
                 } else {
                     ch_14.setVisibility(view.INVISIBLE);
+                    overray14.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 15) {
                     ch_15.setVisibility(view.VISIBLE);
+                    overray15.setVisibility(view.VISIBLE);
                 } else {
                     ch_15.setVisibility(view.INVISIBLE);
+                    overray15.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 16) {
                     ch_16.setVisibility(view.VISIBLE);
+                    overray16.setVisibility(view.VISIBLE);
                 } else {
                     ch_16.setVisibility(view.INVISIBLE);
+                    overray16.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 17) {
                     ch_17.setVisibility(view.VISIBLE);
+                    overray17.setVisibility(view.VISIBLE);
                 } else {
                     ch_17.setVisibility(view.INVISIBLE);
+                    overray17.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 18) {
                     ch_18.setVisibility(view.VISIBLE);
+                    overray18.setVisibility(view.VISIBLE);
                 } else {
                     ch_18.setVisibility(view.INVISIBLE);
+                    overray18.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 19) {
                     ch_19.setVisibility(view.VISIBLE);
+                    overray19.setVisibility(view.VISIBLE);
                 } else {
                     ch_19.setVisibility(view.INVISIBLE);
+                    overray19.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 20) {
                     ch_20.setVisibility(view.VISIBLE);
+                    overray20.setVisibility(view.VISIBLE);
                 } else {
                     ch_20.setVisibility(view.INVISIBLE);
+                    overray20.setVisibility(view.INVISIBLE);
                 }
                 if (character.getLocation() == 21) {
                     ch_21.setVisibility(view.VISIBLE);

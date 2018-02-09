@@ -713,6 +713,148 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/overray1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray4"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray5"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray6"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray7"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray8"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray9"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray10"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray11"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray12"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray13"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray14"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray15"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray16"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray17"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray18"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray19"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/overray20"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_above="@+id/box_5"
+            android:layout_toStartOf="@+id/box_5"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+
     </RelativeLayout>
 
 
