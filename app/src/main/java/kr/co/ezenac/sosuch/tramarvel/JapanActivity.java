@@ -1,12 +1,14 @@
 package kr.co.ezenac.sosuch.tramarvel;
 
-
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kr.co.ezenac.sosuch.tramarvel.model.Character;
@@ -40,8 +42,13 @@ public class JapanActivity extends AppCompatActivity {
     @BindView(R.id.ch_22) ImageView ch_22;
     @BindView(R.id.ch_23) ImageView ch_23;
     @BindView(R.id.ch_24) ImageView ch_24;
-    int selectedPos = 0;
+    @BindView(R.id.txt_player) TextView txt_player;
+    @BindView(R.id.txt_money) TextView txt_money;
+    @BindView(R.id.txt_object) TextView txt_object;
 
+    ImageView[] chs;
+
+    int selectedPos = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +58,43 @@ public class JapanActivity extends AppCompatActivity {
         final Dice dice = new Dice();
         final Character character = new Character();
 
+        chs = new ImageView[24];
+
+        chs[0] = ch_1;
+        chs[1] = ch_2;
+        chs[2] = ch_3;
+        chs[3] = ch_4;
+        chs[4] = ch_5;
+        chs[5] = ch_6;
+        chs[6] = ch_7;
+        chs[7] = ch_8;
+        chs[8] = ch_9;
+        chs[9] = ch_10;
+        chs[10] = ch_11;
+        chs[11] = ch_12;
+        chs[12] = ch_13;
+        chs[13] = ch_14;
+        chs[14] = ch_15;
+        chs[15] = ch_16;
+        chs[16] = ch_17;
+        chs[17] = ch_18;
+        chs[18] = ch_19;
+        chs[19] = ch_20;
+        chs[20] = ch_21;
+        chs[21] = ch_22;
+        chs[22] = ch_23;
+        chs[23] = ch_24;
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_layout);
+        dialog.setTitle("특산물을 구입하시겠습니까?");  //custom dialog
+
         rl_dice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                character.setMoney(character.getMoney()-1);
+                txt_money.setText(character.getMoney().toString());
                 dice.throwDice_2();
                 int sum = dice.getNumber_1() + dice.getNumber_2();
                 character.setLocation(character.getLocation()+sum);
@@ -97,6 +137,8 @@ public class JapanActivity extends AppCompatActivity {
 
                     android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
                     alertDialog.setTitle("특산물을 구매하시겠습니까?");
+
+                    alertDialog.setIcon(android.R.drawable.star_big_on);
                     alertDialog.setSingleChoiceItems(items, selectedPos, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -117,125 +159,17 @@ public class JapanActivity extends AppCompatActivity {
                     alertDialog.show();
 
                 } else {
-                    ch_1.setVisibility(view.INVISIBLE);
-
-                }
-                if (character.getLocation() == 2) {
-                    ch_2.setVisibility(view.VISIBLE);
-                } else {
-                    ch_2.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 3) {
-                    ch_3.setVisibility(view.VISIBLE);
-                } else {
-                    ch_3.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 4) {
-                    ch_4.setVisibility(view.VISIBLE);
-                } else {
-                    ch_4.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 5) {
-                    ch_5.setVisibility(view.VISIBLE);
-                } else {
-                    ch_5.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 6) {
-                    ch_6.setVisibility(view.VISIBLE);
-                } else {
-                    ch_6.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 7) {
-                    ch_7.setVisibility(view.VISIBLE);
-                } else {
-                    ch_7.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 8) {
-                    ch_8.setVisibility(view.VISIBLE);
-                } else {
-                    ch_8.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 9) {
-                    ch_9.setVisibility(view.VISIBLE);
-                } else {
-                    ch_9.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 10) {
-                    ch_10.setVisibility(view.VISIBLE);
-                } else {
-                    ch_10.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 11) {
-                    ch_11.setVisibility(view.VISIBLE);
-                } else {
-                    ch_11.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 12) {
-                    ch_12.setVisibility(view.VISIBLE);
-                } else {
-                    ch_12.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 13) {
-                    ch_13.setVisibility(view.VISIBLE);
-                } else {
-                    ch_13.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 14) {
-                    ch_14.setVisibility(view.VISIBLE);
-                } else {
-                    ch_14.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 15) {
-                    ch_15.setVisibility(view.VISIBLE);
-                } else {
-                    ch_15.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 16) {
-                    ch_16.setVisibility(view.VISIBLE);
-                } else {
-                    ch_16.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 17) {
-                    ch_17.setVisibility(view.VISIBLE);
-                } else {
-                    ch_17.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 18) {
-                    ch_18.setVisibility(view.VISIBLE);
-                } else {
-                    ch_18.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 19) {
-                    ch_19.setVisibility(view.VISIBLE);
-                } else {
-                    ch_19.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 20) {
-                    ch_20.setVisibility(view.VISIBLE);
-                } else {
-                    ch_20.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 21) {
-                    ch_21.setVisibility(view.VISIBLE);
-                } else {
-                    ch_21.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 22) {
-                    ch_22.setVisibility(view.VISIBLE);
-                } else {
-                    ch_22.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 23) {
-                    ch_23.setVisibility(view.VISIBLE);
-                } else {
-                    ch_23.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 24) {
-                    ch_24.setVisibility(view.VISIBLE);
-                } else {
-                    ch_24.setVisibility(view.INVISIBLE);
+                    visibleCh(character.getLocation());
                 }
             }
         });
+    }
+
+    public void visibleCh(int index) {
+        for (int i = 0 ; i < chs.length ; i++) {
+            chs[i].setVisibility(View.INVISIBLE);
+        }
+
+        chs[index].setVisibility(View.VISIBLE);
     }
 }
