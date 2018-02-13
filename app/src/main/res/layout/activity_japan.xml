@@ -11,259 +11,218 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:gravity="center">
 
         <RelativeLayout
             android:id="@+id/box_1"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            >
-            <ImageView
-                android:id="@+id/tile_1"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/box_24"
+            android:layout_marginEnd="27dp">
 
-            <ImageView
-                android:id="@+id/ch_1"
-                android:layout_width="20dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/character_1"
-                android:visibility="visible"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_2"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@id/box_1"
-            >
-            <ImageView
-                android:id="@+id/tile_2"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_alignTop="@+id/box_3"
+            android:layout_toStartOf="@+id/box_1">
 
-            <ImageView
-                android:id="@+id/ch_2"
-                android:layout_width="20dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/character_1"
-                android:visibility="invisible"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_3"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toLeftOf="@id/box_2"
             android:layout_alignParentBottom="true"
-            >
-            <ImageView
-                android:id="@+id/tile_3"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toLeftOf="@id/box_2">
 
             <ImageView
-                android:id="@+id/ch_3"
+                android:id="@+id/tile_1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_1"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="visible" />
+
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_4"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toLeftOf="@id/box_3"
             android:layout_alignParentBottom="true"
-            >
-            <ImageView
-                android:id="@+id/tile_4"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toLeftOf="@id/box_3">
 
             <ImageView
-                android:id="@+id/ch_4"
+                android:id="@+id/tile_2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_2"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_5"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toLeftOf="@id/box_4"
             android:layout_alignParentBottom="true"
-            >
-            <ImageView
-                android:id="@+id/tile_5"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toLeftOf="@id/box_4">
 
             <ImageView
-                android:id="@+id/ch_5"
+                android:id="@+id/tile_3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_3"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
+
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_6"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toLeftOf="@id/box_5"
             android:layout_alignParentBottom="true"
-            >
-            <ImageView
-                android:id="@+id/tile_6"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toLeftOf="@id/box_5">
 
             <ImageView
-                android:id="@+id/ch_6"
+                android:id="@+id/tile_4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_4"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_7"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toLeftOf="@id/box_6"
             android:layout_alignParentBottom="true"
-            >
-            <ImageView
-                android:id="@+id/tile_7"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toLeftOf="@id/box_6">
 
             <ImageView
-                android:id="@+id/ch_7"
+                android:id="@+id/tile_5"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_5"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_8"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toLeftOf="@id/box_7"
             android:layout_alignParentBottom="true"
-            >
-            <ImageView
-                android:id="@+id/tile_8"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toLeftOf="@id/box_7">
 
             <ImageView
-                android:id="@+id/ch_8"
+                android:id="@+id/tile_6"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_6"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_9"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toLeftOf="@id/box_8"
             android:layout_alignParentBottom="true"
-            >
-            <ImageView
-                android:id="@+id/tile_9"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toLeftOf="@id/box_8">
 
             <ImageView
-                android:id="@+id/ch_9"
+                android:id="@+id/tile_7"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_7"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -271,27 +230,26 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_above="@id/box_9"
-            android:layout_alignLeft="@id/box_9"
-            >
-            <ImageView
-                android:id="@+id/tile_10"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_alignLeft="@id/box_9">
 
             <ImageView
-                android:id="@+id/ch_10"
+                android:id="@+id/tile_8"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_8"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -299,27 +257,26 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_above="@id/box_10"
-            android:layout_alignLeft="@id/box_10"
-            >
-            <ImageView
-                android:id="@+id/tile_11"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_alignLeft="@id/box_10">
 
             <ImageView
-                android:id="@+id/ch_11"
+                android:id="@+id/tile_9"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_9"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -327,27 +284,26 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_above="@id/box_11"
-            android:layout_alignLeft="@id/box_11"
-            >
-            <ImageView
-                android:id="@+id/tile_12"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_alignLeft="@id/box_11">
 
             <ImageView
-                android:id="@+id/ch_12"
+                android:id="@+id/tile_10"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_10"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -355,361 +311,302 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_above="@id/box_12"
-            android:layout_alignLeft="@id/box_12"
-            >
-            <ImageView
-                android:id="@+id/tile_13"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_alignLeft="@id/box_12">
 
             <ImageView
-                android:id="@+id/ch_13"
+                android:id="@+id/tile_11"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_11"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_14"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toRightOf="@id/box_13"
             android:layout_alignTop="@id/box_13"
-            >
-            <ImageView
-                android:id="@+id/tile_14"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toRightOf="@id/box_13">
 
             <ImageView
-                android:id="@+id/ch_14"
+                android:id="@+id/tile_12"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_12"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_15"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toRightOf="@id/box_14"
             android:layout_alignTop="@id/box_14"
-            >
-            <ImageView
-                android:id="@+id/tile_15"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toRightOf="@id/box_14">
 
             <ImageView
-                android:id="@+id/ch_15"
+                android:id="@+id/tile_13"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_13"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_16"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toRightOf="@id/box_15"
             android:layout_alignTop="@id/box_15"
-            >
-            <ImageView
-                android:id="@+id/tile_16"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toRightOf="@id/box_15">
 
             <ImageView
-                android:id="@+id/ch_16"
+                android:id="@+id/tile_14"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_14"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_17"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toRightOf="@id/box_16"
             android:layout_alignTop="@id/box_16"
-            >
-            <ImageView
-                android:id="@+id/tile_17"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toRightOf="@id/box_16">
 
             <ImageView
-                android:id="@+id/ch_17"
+                android:id="@+id/tile_15"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_15"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_18"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toRightOf="@id/box_17"
             android:layout_alignTop="@id/box_17"
-            >
-            <ImageView
-                android:id="@+id/tile_18"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_toRightOf="@id/box_17">
 
             <ImageView
-                android:id="@+id/ch_18"
+                android:id="@+id/tile_16"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_16"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_19"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toRightOf="@id/box_18"
             android:layout_alignTop="@id/box_18"
-            >
+            android:layout_toRightOf="@id/box_18">
+
             <ImageView
-                android:id="@+id/tile_19"
+                android:id="@+id/tile_17"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="#0099ff"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+                android:background="#0099ff"></ImageView>
 
             <ImageView
-                android:id="@+id/ch_19"
+                android:id="@+id/ch_17"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/character_1"
-                android:visibility="invisible"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/box_20"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_toRightOf="@id/box_19"
-            android:layout_alignTop="@id/box_19"
-            >
-            <ImageView
-                android:id="@+id/tile_20"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/ch_20"
-                android:layout_width="20dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_21"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toRightOf="@id/box_20"
-            android:layout_alignTop="@id/box_20"
-            >
-            <ImageView
-                android:id="@+id/tile_21"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_alignStart="@+id/box_22"
+            android:layout_below="@+id/box_19">
 
             <ImageView
-                android:id="@+id/ch_21"
+                android:id="@+id/tile_18"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_18"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_22"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_below="@id/box_21"
-            android:layout_alignLeft="@id/box_21"
-            >
-            <ImageView
-                android:id="@+id/tile_22"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_above="@+id/box_23"
+            android:layout_alignStart="@+id/box_23">
 
             <ImageView
-                android:id="@+id/ch_22"
+                android:id="@+id/tile_19"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_19"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
+
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_23"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_below="@id/box_22"
-            android:layout_alignLeft="@id/box_22"
-            >
-            <ImageView
-                android:id="@+id/tile_23"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_above="@+id/box_2"
+            android:layout_toEndOf="@+id/box_4">
 
             <ImageView
-                android:id="@+id/ch_23"
+                android:id="@+id/tile_20"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:background="#0099ff"></ImageView>
+
+            <ImageView
+                android:id="@+id/ch_20"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginBottom="15dp"
-                android:background="@drawable/character_1"
-                android:visibility="invisible"/>
+                android:layout_marginRight="5dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/character_1" />
+
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/box_24"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_below="@id/box_23"
             android:layout_alignLeft="@id/box_23"
-            >
-            <ImageView
-                android:id="@+id/tile_24"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#0099ff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true">
-            </ImageView>
+            android:layout_below="@id/box_23">
 
-            <ImageView
-                android:id="@+id/ch_24"
-                android:layout_width="20dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/character_1"
-                android:visibility="invisible"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rl_dice"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="50dp"
-            android:layout_centerVertical="true">
+            android:layout_below="@+id/box_17"
+            android:layout_toStartOf="@+id/box_19">
 
             <ImageView
                 android:id="@+id/img_dice1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
-                android:background="@drawable/dice_2"/>
+                android:layout_centerVertical="true"
+                android:background="@drawable/dice_2" />
 
             <ImageView
                 android:id="@+id/img_dice2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/dice_5"/>
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/img_dice1"
+                android:background="@drawable/dice_5" />
 
         </RelativeLayout>
 
@@ -720,6 +617,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray2"
             android:layout_width="150dp"
@@ -727,6 +625,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray3"
             android:layout_width="150dp"
@@ -734,6 +633,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray4"
             android:layout_width="150dp"
@@ -741,6 +641,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray5"
             android:layout_width="150dp"
@@ -748,6 +649,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray6"
             android:layout_width="150dp"
@@ -755,6 +657,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray7"
             android:layout_width="150dp"
@@ -762,6 +665,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray8"
             android:layout_width="150dp"
@@ -769,6 +673,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray9"
             android:layout_width="150dp"
@@ -776,6 +681,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray10"
             android:layout_width="150dp"
@@ -783,6 +689,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray11"
             android:layout_width="150dp"
@@ -790,6 +697,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray12"
             android:layout_width="150dp"
@@ -797,6 +705,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray13"
             android:layout_width="150dp"
@@ -804,6 +713,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray14"
             android:layout_width="150dp"
@@ -811,6 +721,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray15"
             android:layout_width="150dp"
@@ -818,6 +729,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray16"
             android:layout_width="150dp"
@@ -825,6 +737,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray17"
             android:layout_width="150dp"
@@ -832,6 +745,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray18"
             android:layout_width="150dp"
@@ -839,6 +753,7 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray19"
             android:layout_width="150dp"
@@ -846,12 +761,13 @@
             android:layout_above="@+id/box_5"
             android:layout_toStartOf="@+id/box_5"
             app:srcCompat="@android:drawable/btn_star_big_on" />
+
         <ImageView
             android:id="@+id/overray20"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_above="@+id/box_5"
-            android:layout_toStartOf="@+id/box_5"
+            android:layout_alignStart="@+id/overray1"
+            android:layout_alignTop="@+id/overray1"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
 

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); //기능은 java에서 구현하고 화면은 setContentView로 layout파일을 띄워준다.
         ButterKnife.bind(this);
 
         btn_start.setOnClickListener(new View.OnClickListener() {
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,SelectActivity.class);
                 startActivityForResult(intent,0);
             }
-        });
+        });  //이 클래스에 존재하는(.this) MainActivity에서 SelectActivity.class로 넘겨준다.
 
         btn_continue.setOnClickListener(new View.OnClickListener() {
             @Override

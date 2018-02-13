@@ -28,3 +28,5 @@ public class IntroActivity extends AppCompatActivity {
         });
     }
 }
+
+//인트로 페이지를 클릭하면 mainActivity로 넘어간다.

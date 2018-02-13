@@ -1,5 +1,8 @@
 package kr.co.ezenac.sosuch.tramarvel;
 
+/**
+ * Created by Administrator on 2018-02-12.
+ */
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,9 +17,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import kr.co.ezenac.sosuch.tramarvel.model.Character;
 import kr.co.ezenac.sosuch.tramarvel.model.Dice;
-import kr.co.ezenac.sosuch.tramarvel.model.Score;
 
-public class JapanActivity extends AppCompatActivity {
+public class JapanActivity2 extends AppCompatActivity {
     @BindView(R.id.rl_dice) RelativeLayout rl_dice;
     @BindView(R.id.img_dice1) ImageView img_dice1;
     @BindView(R.id.img_dice2) ImageView img_dice2;
@@ -71,7 +73,6 @@ public class JapanActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         final Dice dice = new Dice();
         final Character character = new Character();
-        final Score score = new Score;
 
         final SoundPool sp = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
 
@@ -127,7 +128,7 @@ public class JapanActivity extends AppCompatActivity {
 
                     final String items[] = {"특산물1","특산물2","특산물3"};
 
-                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity2.this);
                     alertDialog.setTitle("특산물을 구매하시겠습니까?");
                     alertDialog.setSingleChoiceItems(items, selectedPos, new DialogInterface.OnClickListener() {
                         @Override
@@ -291,27 +292,8 @@ public class JapanActivity extends AppCompatActivity {
                     overray20.setVisibility(view.INVISIBLE);
                 }
 
-
-                if(score.getTotalscore() == 200) {
-                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
-                    alertDialog.setTitle("1번 지역 클리어!!!!" + "/n" + "다음 지역으로 넘어가시겠습니까?");
-
-                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            sp.play(select_s, 1, 1, 0, 0, 1.0F);
-                        }
-                    });
-                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                        }
-                    });
-                    alertDialog.show();
-                }
-
             }
         });
     }
 }
+
