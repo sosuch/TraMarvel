@@ -61,6 +61,9 @@ public class JapanActivity extends AppCompatActivity {
     @BindView(R.id.overray19) ImageView overray19;
     @BindView(R.id.overray20) ImageView overray20;
 
+    ImageView[] chs;
+    ImageView[] overrays;
+
     int selectedPos = 0;
 
 
@@ -79,9 +82,49 @@ public class JapanActivity extends AppCompatActivity {
         final int money_s = sp.load(this, R.raw.money, 1);
         final int select_s = sp.load(this, R.raw.select, 1);
 
-        /*final은 해당 클래스의 정보를 더 이상 바꾸지 않겠다는 선언이다. 이를 활용하지 않으면 본래의 클래스의 정보와
-        다른 클래스에서 수정하는 정보가 다르기 때문에 에러가 발생한다. 그래서 final로 새로 수정하는 쪽을 클래스정보가 아닌
-        일반적인 상수로 바꾸어주어 충돌이 일어나 에러가 발생하는 것을 막아주는 것이다.*/
+        chs = new ImageView[20];
+        chs[0] = ch_1;
+        chs[1] = ch_2;
+        chs[2] = ch_3;
+        chs[3] = ch_4;
+        chs[4] = ch_5;
+        chs[5] = ch_6;
+        chs[6] = ch_7;
+        chs[7] = ch_8;
+        chs[8] = ch_9;
+        chs[9] = ch_10;
+        chs[10] = ch_11;
+        chs[11] = ch_12;
+        chs[12] = ch_13;
+        chs[13] = ch_14;
+        chs[14] = ch_15;
+        chs[15] = ch_16;
+        chs[16] = ch_17;
+        chs[17] = ch_18;
+        chs[18] = ch_19;
+        chs[19] = ch_20;
+
+        overrays = new ImageView[20];
+        overrays[0] = overray1;
+        overrays[1] = overray2;
+        overrays[2] = overray3;
+        overrays[3] = overray4;
+        overrays[4] = overray5;
+        overrays[5] = overray6;
+        overrays[6] = overray7;
+        overrays[7] = overray8;
+        overrays[8] = overray9;
+        overrays[9] = overray10;
+        overrays[10] = overray11;
+        overrays[11] = overray12;
+        overrays[12] = overray13;
+        overrays[13] = overray14;
+        overrays[14] = overray15;
+        overrays[15] = overray16;
+        overrays[16] = overray17;
+        overrays[17] = overray18;
+        overrays[18] = overray19;
+        overrays[19] = overray20;
 
         rl_dice.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +138,6 @@ public class JapanActivity extends AppCompatActivity {
                 if (character.getLocation() > 20) {
                     character.setLocation(character.getLocation()-20);
                 }
-                //주사위의 합이 20을 넘으면 1부터 다시 시작하게 만들기 위해서 20을 빼준다.
 
                 if (dice.getNumber_1() == 1) {
                     img_dice1.setBackgroundResource(R.drawable.dice_1);
@@ -126,8 +168,6 @@ public class JapanActivity extends AppCompatActivity {
                 }
 
                 if (character.getLocation() == 1) {
-                    ch_1.setVisibility(view.VISIBLE);
-                    overray1.setVisibility(view.VISIBLE);
 
                     final String items[] = {"특산물1","특산물2","특산물3"};
 
@@ -156,164 +196,41 @@ public class JapanActivity extends AppCompatActivity {
                     alertDialog.show();
 
                 } else {
-                    ch_1.setVisibility(view.INVISIBLE);
-                    overray1.setVisibility(view.INVISIBLE);
 
                 }
-                if (character.getLocation() == 2) {
-                    ch_2.setVisibility(view.VISIBLE);
-                    overray2.setVisibility(view.VISIBLE);
 
-                } else {
-                    ch_2.setVisibility(view.INVISIBLE);
-                    overray2.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 3) {
-                    ch_3.setVisibility(view.VISIBLE);
-                    overray3.setVisibility(view.VISIBLE);
-                } else {
-                    ch_3.setVisibility(view.INVISIBLE);
-                    overray3.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 4) {
-                    ch_4.setVisibility(view.VISIBLE);
-                    overray4.setVisibility(view.VISIBLE);
-                } else {
-                    ch_4.setVisibility(view.INVISIBLE);
-                    overray4.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 5) {
-                    ch_5.setVisibility(view.VISIBLE);
-                    overray5.setVisibility(view.VISIBLE);
-                } else {
-                    ch_5.setVisibility(view.INVISIBLE);
-                    overray5.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 6) {
-                    ch_6.setVisibility(view.VISIBLE);
-                    overray6.setVisibility(view.VISIBLE);
-                } else {
-                    ch_6.setVisibility(view.INVISIBLE);
-                    overray6.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 7) {
-                    ch_7.setVisibility(view.VISIBLE);
-                    overray7.setVisibility(view.VISIBLE);
-                } else {
-                    ch_7.setVisibility(view.INVISIBLE);
-                    overray7.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 8) {
-                    ch_8.setVisibility(view.VISIBLE);
-                    overray8.setVisibility(view.VISIBLE);
-                } else {
-                    ch_8.setVisibility(view.INVISIBLE);
-                    overray8.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 9) {
-                    ch_9.setVisibility(view.VISIBLE);
-                    overray9.setVisibility(view.VISIBLE);
-                } else {
-                    ch_9.setVisibility(view.INVISIBLE);
-                    overray9.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 10) {
-                    ch_10.setVisibility(view.VISIBLE);
-                    overray10.setVisibility(view.VISIBLE);
-                } else {
-                    ch_10.setVisibility(view.INVISIBLE);
-                    overray10.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 11) {
-                    ch_11.setVisibility(view.VISIBLE);
-                    overray11.setVisibility(view.VISIBLE);
-                } else {
-                    ch_11.setVisibility(view.INVISIBLE);
-                    overray11.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 12) {
-                    ch_12.setVisibility(view.VISIBLE);
-                    overray12.setVisibility(view.VISIBLE);
-                } else {
-                    ch_12.setVisibility(view.INVISIBLE);
-                    overray12.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 13) {
-                    ch_13.setVisibility(view.VISIBLE);
-                    overray13.setVisibility(view.VISIBLE);
-                } else {
-                    ch_13.setVisibility(view.INVISIBLE);
-                    overray13.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 14) {
-                    ch_14.setVisibility(view.VISIBLE);
-                    overray14.setVisibility(view.VISIBLE);
-                } else {
-                    ch_14.setVisibility(view.INVISIBLE);
-                    overray14.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 15) {
-                    ch_15.setVisibility(view.VISIBLE);
-                    overray15.setVisibility(view.VISIBLE);
-                } else {
-                    ch_15.setVisibility(view.INVISIBLE);
-                    overray15.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 16) {
-                    ch_16.setVisibility(view.VISIBLE);
-                    overray16.setVisibility(view.VISIBLE);
-                } else {
-                    ch_16.setVisibility(view.INVISIBLE);
-                    overray16.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 17) {
-                    ch_17.setVisibility(view.VISIBLE);
-                    overray17.setVisibility(view.VISIBLE);
-                } else {
-                    ch_17.setVisibility(view.INVISIBLE);
-                    overray17.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 18) {
-                    ch_18.setVisibility(view.VISIBLE);
-                    overray18.setVisibility(view.VISIBLE);
-                } else {
-                    ch_18.setVisibility(view.INVISIBLE);
-                    overray18.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 19) {
-                    ch_19.setVisibility(view.VISIBLE);
-                    overray19.setVisibility(view.VISIBLE);
-                } else {
-                    ch_19.setVisibility(view.INVISIBLE);
-                    overray19.setVisibility(view.INVISIBLE);
-                }
-                if (character.getLocation() == 20) {
-                    ch_20.setVisibility(view.VISIBLE);
-                    overray20.setVisibility(view.VISIBLE);
-                } else {
-                    ch_20.setVisibility(view.INVISIBLE);
-                    overray20.setVisibility(view.INVISIBLE);
-                }
+                visibleCh(character.getLocation());
+                visibleOverrray(character.getLocation());
 
-                //주석
-
-
-                if(score.getTotalscore() == 100) {
-                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
-                    alertDialog.setTitle("1번 지역 클리어!!!!" + "/n" + "다음 지역으로 넘어갑니다~~!!");
-
-                    alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            sp.play(select_s, 1, 1, 0, 0, 1.0F);
-                        }
-                    });
-
-                    alertDialog.show();
-                }
-
+//                if(score.getTotalscore() == 100) {
+//                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+//                    alertDialog.setTitle("1번 지역 클리어!!!!" + "/n" + "다음 지역으로 넘어갑니다~~!!");
+//
+//                    alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                            sp.play(select_s, 1, 1, 0, 0, 1.0F);
+//                        }
+//                    });
+//
+//                    alertDialog.show();
+//                }
             }
         });
+    }
+
+    public void visibleCh(int index) {
+        for (int i = 0; i <chs.length; i++) {
+            chs[i].setVisibility((View.INVISIBLE));
+        }
+        chs[index-1].setVisibility(View.VISIBLE);
+    }
+
+    public void visibleOverrray(int index) {
+        for (int i = 0; i <chs.length; i++) {
+            chs[i].setVisibility((View.INVISIBLE));
+        }
+        chs[index-1].setVisibility(View.VISIBLE);
     }
 }
