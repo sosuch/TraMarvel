@@ -50,13 +50,13 @@ public class JapanActivity extends AppCompatActivity {
 
     int selectedPos = 0;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_japan);
-        ButterKnife.bind(this);
-        final Dice dice = new Dice();
-        final Character character = new Character();
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_japan);
+            ButterKnife.bind(this);
+            final Dice dice = new Dice();
+            final Character character = new Character();
 
         chs = new ImageView[24];
 
@@ -130,37 +130,32 @@ public class JapanActivity extends AppCompatActivity {
                     img_dice2.setBackgroundResource(R.drawable.dice_6);
                 }
 
-                if (character.getLocation() == 1) {
-                    ch_1.setVisibility(view.VISIBLE);
+                visibleCh(character.getLocation()-1);
 
-                    final String items[] = {"특산물1","특산물2","특산물3"};
+                final String items[] = {"특산물1","특산물2","특산물3"};
 
-                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
-                    alertDialog.setTitle("특산물을 구매하시겠습니까?");
+                android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                alertDialog.setTitle("특산물을 구매하시겠습니까?");
 
-                    alertDialog.setIcon(android.R.drawable.star_big_on);
-                    alertDialog.setSingleChoiceItems(items, selectedPos, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            selectedPos = i;
-                        }
-                    });
-                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            //현금 차감, 특산물 증가
-                        }
-                    });
-                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                        }
-                    });
-                    alertDialog.show();
-
-                } else {
-                    visibleCh(character.getLocation());
-                }
+                alertDialog.setIcon(android.R.drawable.star_big_on);
+                alertDialog.setSingleChoiceItems(items, selectedPos, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        selectedPos = i;
+                    }
+                });
+                alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //현금 차감, 특산물 증가
+                    }
+                });
+                alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                alertDialog.show();
             }
         });
     }
@@ -169,7 +164,6 @@ public class JapanActivity extends AppCompatActivity {
         for (int i = 0 ; i < chs.length ; i++) {
             chs[i].setVisibility(View.INVISIBLE);
         }
-
         chs[index].setVisibility(View.VISIBLE);
     }
 }
