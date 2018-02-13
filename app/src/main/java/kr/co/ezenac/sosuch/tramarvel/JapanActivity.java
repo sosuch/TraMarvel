@@ -71,7 +71,7 @@ public class JapanActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         final Dice dice = new Dice();
         final Character character = new Character();
-        final Score score = new Score;
+        final Score score = new Score();
 
         final SoundPool sp = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
 

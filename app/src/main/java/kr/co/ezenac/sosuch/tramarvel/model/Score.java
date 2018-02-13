@@ -15,7 +15,7 @@ public class Score {
         this.totalscore = totalscore;
     }
 
-    public Score(Integer totalscore) {
+    public Score() {
         this.totalscore = totalscore;
     }
 }
