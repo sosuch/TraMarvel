@@ -10,16 +10,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kr.co.ezenac.sosuch.tramarvel.model.Character;
 import kr.co.ezenac.sosuch.tramarvel.model.Dice;
 import kr.co.ezenac.sosuch.tramarvel.model.Score;
+import kr.co.ezenac.sosuch.tramarvel.model.Tile;
 
 public class JapanActivity extends AppCompatActivity {
     @BindView(R.id.rl_dice) RelativeLayout rl_dice;
     @BindView(R.id.img_dice1) ImageView img_dice1;
     @BindView(R.id.img_dice2) ImageView img_dice2;
+    @BindView(R.id.txt_money) TextView txt_money;
+    @BindView(R.id.txt_score) TextView txt_score;
     @BindView(R.id.ch_1) ImageView ch_1;
     @BindView(R.id.ch_2) ImageView ch_2;
     @BindView(R.id.ch_3) ImageView ch_3;
@@ -66,7 +72,6 @@ public class JapanActivity extends AppCompatActivity {
 
     int selectedPos = 0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +80,8 @@ public class JapanActivity extends AppCompatActivity {
         final Dice dice = new Dice();
         final Character character = new Character();
         final Score score = new Score();
+
+        final Tile tile1 = new Tile(1,"도쿄","와규",5,10,"icons");
 
         final SoundPool sp = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
 
@@ -169,23 +176,35 @@ public class JapanActivity extends AppCompatActivity {
 
                 if (character.getLocation() == 1) {
 
-                    final String items[] = {"특산물1","특산물2","특산물3"};
-
                     android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
-                    alertDialog.setTitle("특산물을 구매하시겠습니까?");
-                    alertDialog.setSingleChoiceItems(items, selectedPos, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            selectedPos = i;
+                    alertDialog.setTitle("와규를 구입하시겠습니까?");
 
-                            sp.play(select_s, 1, 1, 0, 0, 1.0F);
-                        }
-                    });
                     alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            //현금 차감, 특산물 증가
+                            character.setMoney(character.getMoney() - tile1.getProduct_price());
+                            score.setTotalscore(score.getTotalscore() + tile1.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(score.getTotalscore().toString());
                             sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            if(score.getTotalscore() >= 5) {
+                                android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                                alertDialog.setTitle("1번 지역 클리어!!!!" + "\n" + "다음 지역으로 넘어갑니다~~!!");
+
+                                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                                        sp.play(select_s, 1, 1, 0, 0, 1.0F);
+                                    }
+                                });
+                                alertDialog.show();
+
+                                Intent intent = new Intent(JapanActivity.this,MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
                         }
                     });
                     alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
@@ -202,20 +221,7 @@ public class JapanActivity extends AppCompatActivity {
                 visibleCh(character.getLocation());
                 visibleOverrray(character.getLocation());
 
-//                if(score.getTotalscore() == 100) {
-//                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
-//                    alertDialog.setTitle("1번 지역 클리어!!!!" + "/n" + "다음 지역으로 넘어갑니다~~!!");
-//
-//                    alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                            sp.play(select_s, 1, 1, 0, 0, 1.0F);
-//                        }
-//                    });
-//
-//                    alertDialog.show();
-//                }
+
             }
         });
     }

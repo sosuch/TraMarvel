@@ -5,7 +5,7 @@ package kr.co.ezenac.sosuch.tramarvel.model;
  */
 
 public class Score {
-    private Integer totalscore;
+    private Integer totalscore = 0;
 
     public Integer getTotalscore() {
         return totalscore;

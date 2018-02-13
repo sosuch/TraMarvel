@@ -2,6 +2,8 @@ package kr.co.ezenac.sosuch.tramarvel.model;
 
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 /**
  * Created by Administrator on 2018-02-09.
  */
@@ -10,8 +12,21 @@ public class Tile {
     private Integer id;
     private String city_name;
     private String product_name;
+    private Integer product_score;
     private Integer product_price;
+
+
+
     private String picture;
+
+    public Tile(Integer id, String city_name, String product_name, Integer product_score, Integer product_price, String picture) {
+        this.id = id;
+        this.city_name = city_name;
+        this.product_name = product_name;
+        this.product_score = product_score;
+        this.product_price = product_price;
+        this.picture = picture;
+    }
 
     public Integer getId() {
         return id;
@@ -37,6 +52,14 @@ public class Tile {
         this.product_name = product_name;
     }
 
+    public Integer getProduct_score() {
+        return product_score;
+    }
+
+    public void setProduct_score(Integer product_score) {
+        this.product_score = product_score;
+    }
+
     public Integer getProduct_price() {
         return product_price;
     }
@@ -53,6 +76,4 @@ public class Tile {
         this.picture = picture;
     }
 
-    public Tile() {
-    }
 }
