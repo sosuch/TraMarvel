@@ -79,6 +79,10 @@ public class JapanActivity extends AppCompatActivity {
         final int money_s = sp.load(this, R.raw.money, 1);
         final int select_s = sp.load(this, R.raw.select, 1);
 
+        /*final은 해당 클래스의 정보를 더 이상 바꾸지 않겠다는 선언이다. 이를 활용하지 않으면 본래의 클래스의 정보와
+        다른 클래스에서 수정하는 정보가 다르기 때문에 에러가 발생한다. 그래서 final로 새로 수정하는 쪽을 클래스정보가 아닌
+        일반적인 상수로 바꾸어주어 충돌이 일어나 에러가 발생하는 것을 막아주는 것이다.*/
+
         rl_dice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
