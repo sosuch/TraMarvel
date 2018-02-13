@@ -1,5 +1,7 @@
 package kr.co.ezenac.sosuch.tramarvel.model;
 
+import kr.co.ezenac.sosuch.tramarvel.R;
+
 /**
  * Created by Administrator on 2018-02-05.
  */
