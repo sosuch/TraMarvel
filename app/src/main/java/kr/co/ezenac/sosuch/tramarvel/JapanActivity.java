@@ -292,22 +292,18 @@ public class JapanActivity extends AppCompatActivity {
                 }
 
 
-                if(score.getTotalscore() == 200) {
+                if(score.getTotalscore() == 100) {
                     android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
-                    alertDialog.setTitle("1번 지역 클리어!!!!" + "/n" + "다음 지역으로 넘어가시겠습니까?");
+                    alertDialog.setTitle("1번 지역 클리어!!!!" + "/n" + "다음 지역으로 넘어갑니다~~!!");
 
-                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
                             sp.play(select_s, 1, 1, 0, 0, 1.0F);
                         }
                     });
-                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                        }
-                    });
+
                     alertDialog.show();
                 }
 
