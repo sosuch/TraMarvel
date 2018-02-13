@@ -291,6 +291,8 @@ public class JapanActivity extends AppCompatActivity {
                     overray20.setVisibility(view.INVISIBLE);
                 }
 
+                //주석
+
 
                 if(score.getTotalscore() == 100) {
                     android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
