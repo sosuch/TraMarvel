@@ -195,7 +195,6 @@ public class JapanActivity extends AppCompatActivity {
                                 alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-
                                         sp.play(select_s, 1, 1, 0, 0, 1.0F);
                                     }
                                 });
