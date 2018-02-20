@@ -30,7 +30,8 @@
         <activity
             android:name=".JapanActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".customview.CustomDialog"></activity>
+        <activity android:name=".model.NextActivity"
+            android:screenOrientation="landscape" ></activity>
     </application>
 
 </manifest>

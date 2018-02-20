@@ -17,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import kr.co.ezenac.sosuch.tramarvel.model.Character;
 import kr.co.ezenac.sosuch.tramarvel.model.Dice;
+import kr.co.ezenac.sosuch.tramarvel.model.NextActivity;
 import kr.co.ezenac.sosuch.tramarvel.model.Score;
 import kr.co.ezenac.sosuch.tramarvel.model.Tile;
 
@@ -197,7 +198,7 @@ public class JapanActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         sp.play(select_s, 1, 1, 0, 0, 1.0F);
 
-                                        Intent intent = new Intent(JapanActivity.this,MainActivity.class);
+                                        Intent intent = new Intent(JapanActivity.this,NextActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }
