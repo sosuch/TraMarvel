@@ -770,6 +770,31 @@
             android:layout_alignTop="@+id/overray1"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
+        <RelativeLayout
+            android:id="@+id/speakerBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/box_2"
+            android:layout_toEndOf="@+id/box_2">
+
+            <ImageView
+                android:id="@+id/speaker_On"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                app:srcCompat="@drawable/loudspeaker" />
+
+            <SeekBar
+                android:id="@+id/move_Bar"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:max="100"
+                android:progress="50" />
+        </RelativeLayout>
+
 
     </RelativeLayout>
 

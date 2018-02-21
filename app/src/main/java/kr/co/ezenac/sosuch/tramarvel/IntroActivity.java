@@ -10,11 +10,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class IntroActivity extends AppCompatActivity {
-    @BindView(R.id.intro_page) RelativeLayout intro_page;
+    @BindView(R.id.intro_page) RelativeLayout intro_page; //ButterKnife활용을 위해 bindView처리
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState); //상속을 받아서 onCreate에서 다시 구현
         setContentView(R.layout.activity_intro);
         ButterKnife.bind(this);
 

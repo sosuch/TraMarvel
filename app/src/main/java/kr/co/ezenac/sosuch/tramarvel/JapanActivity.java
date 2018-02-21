@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 
@@ -67,6 +68,8 @@ public class JapanActivity extends AppCompatActivity {
     @BindView(R.id.overray18) ImageView overray18;
     @BindView(R.id.overray19) ImageView overray19;
     @BindView(R.id.overray20) ImageView overray20;
+    @BindView(R.id.speaker_On) ImageView speaker_On;
+    @BindView(R.id.move_Bar) SeekBar move_Bar;
 
     ImageView[] chs;
     ImageView[] overrays;
@@ -81,6 +84,9 @@ public class JapanActivity extends AppCompatActivity {
         final Dice dice = new Dice();
         final Character character = new Character();
         final Score score = new Score();
+        final AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE); //볼륨 조절
+        int nMax = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int nCurrentVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC); //볼륨 조절
 
         final Tile tile1 = new Tile(1,"도쿄","와규",5,10,"icons");
 
@@ -221,9 +227,29 @@ public class JapanActivity extends AppCompatActivity {
                 visibleCh(character.getLocation());
                 visibleOverrray(character.getLocation());
 
+            }
+        });
+
+        move_Bar.setMax(nMax);                                                                           //볼륨조절
+        move_Bar.setProgress(nCurrentVolumn);
+
+        move_Bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
         });
+
     }
 
     public void visibleCh(int index) {

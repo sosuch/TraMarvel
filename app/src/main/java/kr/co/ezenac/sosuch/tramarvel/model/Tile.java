@@ -14,9 +14,6 @@ public class Tile {
     private String product_name;
     private Integer product_score;
     private Integer product_price;
-
-
-
     private String picture;
 
     public Tile(Integer id, String city_name, String product_name, Integer product_score, Integer product_price, String picture) {

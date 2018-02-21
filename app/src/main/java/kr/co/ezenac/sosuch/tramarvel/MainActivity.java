@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,SelectActivity.class);
-                startActivityForResult(intent,0);
+                startActivityForResult(intent,0); // startActivity(intent)는 그냥 넘겨줄 때, startActivityForResult(intent, 0)는 넘겨준 후, 처리해서 다시 모체로 넘겨줄 때 사용한다.
             }
         });  //이 클래스에 존재하는(.this) MainActivity에서 SelectActivity.class로 넘겨준다.
 

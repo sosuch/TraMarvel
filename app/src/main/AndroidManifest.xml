@@ -30,8 +30,10 @@
         <activity
             android:name=".JapanActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".model.NextActivity"
-            android:screenOrientation="landscape" ></activity>
+        <activity
+            android:name=".model.NextActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".VolumeActivity"></activity>
     </application>
 
 </manifest>
