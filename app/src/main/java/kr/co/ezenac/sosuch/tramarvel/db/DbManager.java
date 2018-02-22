@@ -19,7 +19,7 @@ public class DbManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREAT TABLE Content (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "city_name TEXT, product_name TEXT, product_price INTEGER, picture TEXT);";
+                "location INTEGER, money INTEGER, point INTEGER, product_name TEXT);";
 
         sqLiteDatabase.execSQL(query);
     }
@@ -34,9 +34,9 @@ public class DbManager extends SQLiteOpenHelper {
         db.execSQL("Delete from Content where id=" + id);
     }
 
-    public void insertData(String city_name, String product_name, int product_price, String picture) {
+    public void insertData(int location, int money, int point, String product_name) {
         SQLiteDatabase db = getReadableDatabase();
-        db.execSQL("Insert into Content Values (null,'" + city_name+ "','"+product_name +"',"
-        + product_price + ",'" + picture + "');");
+        db.execSQL("Insert into Content Values (null,'" + location + "','"+money +"',"
+                + point + ",'" + product_name + "');");
     }
 }
