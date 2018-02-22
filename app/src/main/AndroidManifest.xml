@@ -33,7 +33,6 @@
         <activity
             android:name=".model.NextActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".VolumeActivity"></activity>
     </application>
 
 </manifest>
