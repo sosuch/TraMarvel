@@ -1,6 +1,7 @@
 package kr.co.ezenac.sosuch.tramarvel;
 
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -8,11 +9,16 @@ import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -70,6 +76,7 @@ public class JapanActivity extends AppCompatActivity {
     @BindView(R.id.overray20) ImageView overray20;
     @BindView(R.id.speaker_On) ImageView speaker_On;
     @BindView(R.id.move_Bar) SeekBar move_Bar;
+    @BindView(R.id.bSave) Button bSave;
 
     ImageView[] chs;
     ImageView[] overrays;
@@ -88,7 +95,8 @@ public class JapanActivity extends AppCompatActivity {
         int nMax = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int nCurrentVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC); //볼륨 조절
 
-        final Tile tile1 = new Tile(1,"도쿄","와규",5,10,"icons");
+
+        final Tile tile1 = new Tile(1, "도쿄", "와규", 5, 10, "icons");
 
         final SoundPool sp = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
 
@@ -148,9 +156,9 @@ public class JapanActivity extends AppCompatActivity {
 
                 dice.throwDice_2();
                 int sum = dice.getNumber_1() + dice.getNumber_2();
-                character.setLocation(character.getLocation()+sum);
+                character.setLocation(character.getLocation() + sum);
                 if (character.getLocation() > 20) {
-                    character.setLocation(character.getLocation()-20);
+                    character.setLocation(character.getLocation() - 20);
                 }
 
                 if (dice.getNumber_1() == 1) {
@@ -195,7 +203,7 @@ public class JapanActivity extends AppCompatActivity {
                             txt_score.setText(score.getTotalscore().toString());
                             sp.play(money_s, 1, 1, 0, 0, 1.0F);
 
-                            if(score.getTotalscore() >= 5) {
+                            if (score.getTotalscore() >= 5) {
                                 android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
                                 alertDialog.setTitle("1번 지역 클리어!!!!" + "\n" + "다음 지역으로 넘어갑니다~~!!");
 
@@ -204,7 +212,7 @@ public class JapanActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         sp.play(select_s, 1, 1, 0, 0, 1.0F);
 
-                                        Intent intent = new Intent(JapanActivity.this,NextActivity.class);
+                                        Intent intent = new Intent(JapanActivity.this, NextActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }
@@ -230,7 +238,7 @@ public class JapanActivity extends AppCompatActivity {
             }
         });
 
-        move_Bar.setMax(nMax);                                                                           //볼륨조절
+        move_Bar.setMax(nMax);                                                                           //볼륨조절 기능
         move_Bar.setProgress(nCurrentVolumn);
 
         move_Bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -247,6 +255,25 @@ public class JapanActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+
+        bSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                /*try {
+                    FileOutputStream fos = openFileOutput("myfile.txt",  //파일명 지정
+                                                                        Context.MODE_APPEND); //저장모드
+                    PrintWriter out = new PrintWriter(fos);
+                    out.println();
+                    out.close();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }*/
+
+                Toast.makeText(JapanActivity.this, "저장 완료", Toast.LENGTH_LONG).show();
             }
         });
 

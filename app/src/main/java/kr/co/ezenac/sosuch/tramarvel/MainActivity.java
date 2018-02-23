@@ -5,6 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,11 +37,18 @@ public class MainActivity extends AppCompatActivity {
         btn_continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,SelectActivity.class);
+               /* try {
+                    //파일에서 읽은 데이터를 저장하기 위해서 만든 변수
 
-                //로딩을 위한 로직 필요
+                    StringBuffer data = new StringBuffer();
+                    FileInputStream fis = openFileInput("myfile.txt"); //파일명
+                    BufferedReader buffer = new BufferedReader(new InputStreamReader(fis));
 
-                startActivityForResult(intent,0);
+                    } catch (Exception e) {
+                    e.printStackTrace();
+                } */
+
+                Toast.makeText(MainActivity.this, "불러오기 완료", Toast.LENGTH_LONG).show();
             }
         });
 
