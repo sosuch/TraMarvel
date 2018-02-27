@@ -7,9 +7,17 @@ package kr.co.ezenac.sosuch.tramarvel.model;
     public class Character {
         private Integer location = 1;
         private Integer money = 100;
-        private String object;
+        private Integer score = 0;
+        private String object = "와규";
 
-    public Character() {
+    public Character(Integer location, Integer money, Integer score, String object) {
+        this.location = location;
+        this.money = money;
+        this.score = score;
+        this.object = object;
+    }
+
+    public Character(){
     }
 
     public Integer getMoney() {
@@ -28,11 +36,19 @@ package kr.co.ezenac.sosuch.tramarvel.model;
         this.object = object;
     }
 
-        public Integer getLocation() {
+    public Integer getLocation() {
             return location;
         }
 
-        public void setLocation(Integer location) {
+    public void setLocation(Integer location) {
             this.location = location;
         }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
 }

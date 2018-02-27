@@ -22,7 +22,7 @@ public class Tile {
         this.product_name = product_name;
         this.product_score = product_score;
         this.product_price = product_price;
-        this.picture = picture;
+        this.picture = picture;  
     }
 
     public Integer getId() {

@@ -58,7 +58,7 @@
                 android:layout_marginBottom="15dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/character_1"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
         </RelativeLayout>
 

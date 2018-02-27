@@ -1,6 +1,5 @@
 package kr.co.ezenac.sosuch.tramarvel;
 
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,6 +7,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,12 +16,12 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import kr.co.ezenac.sosuch.tramarvel.db.DbManager;
 import kr.co.ezenac.sosuch.tramarvel.model.Character;
 import kr.co.ezenac.sosuch.tramarvel.model.Dice;
 import kr.co.ezenac.sosuch.tramarvel.model.NextActivity;
@@ -80,13 +80,24 @@ public class JapanActivity extends AppCompatActivity {
 
     ImageView[] chs;
     ImageView[] overrays;
-
-    int selectedPos = 0;
+    DbManager dbManager;
+    Intent intent;
+    Integer ctn_location;
+    Integer ctn_money;
+    Integer ctn_score;
+    String ctn_object;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_japan);
+
+        intent = getIntent();
+        ctn_location = intent.getIntExtra("location",1);
+        ctn_money = intent.getIntExtra("money",100);
+        ctn_score = intent.getIntExtra("score",0);
+        ctn_object = intent.getStringExtra("object");
+
         ButterKnife.bind(this);
         final Dice dice = new Dice();
         final Character character = new Character();
@@ -94,6 +105,14 @@ public class JapanActivity extends AppCompatActivity {
         final AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE); //볼륨 조절
         int nMax = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int nCurrentVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC); //볼륨 조절
+
+        character.setLocation(ctn_location);
+        character.setMoney(ctn_money);
+        character.setScore(ctn_score);
+        character.setObject(ctn_object);
+
+        dbManager = new DbManager(
+                JapanActivity.this,"TraMarvel.db",null,1);
 
 
         final Tile tile1 = new Tile(1, "도쿄", "와규", 5, 10, "icons");
@@ -148,6 +167,14 @@ public class JapanActivity extends AppCompatActivity {
         overrays[18] = overray19;
         overrays[19] = overray20;
 
+        visibleCh(character.getLocation());
+        visibleOverrray(character.getLocation());
+
+        Log.d("ssc","dbL : " + character.getLocation());
+        Log.d("ssc","dbM : " + character.getMoney());
+        Log.d("ssc","dbS : " + character.getScore());
+        Log.d("ssc","dbO : " + character.getObject());
+
         rl_dice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -198,12 +225,12 @@ public class JapanActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             character.setMoney(character.getMoney() - tile1.getProduct_price());
-                            score.setTotalscore(score.getTotalscore() + tile1.getProduct_score());
+                            character.setScore(character.getScore() + tile1.getProduct_score());
                             txt_money.setText(character.getMoney().toString());
-                            txt_score.setText(score.getTotalscore().toString());
+                            txt_score.setText(character.getScore().toString());
                             sp.play(money_s, 1, 1, 0, 0, 1.0F);
 
-                            if (score.getTotalscore() >= 5) {
+                            if (character.getScore() >= 5) {
                                 android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
                                 alertDialog.setTitle("1번 지역 클리어!!!!" + "\n" + "다음 지역으로 넘어갑니다~~!!");
 
@@ -273,7 +300,10 @@ public class JapanActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }*/
 
-                Toast.makeText(JapanActivity.this, "저장 완료", Toast.LENGTH_LONG).show();
+                // public void saveData(int location, int money, int score, String product_name)
+            dbManager.saveData(character.getLocation(),character.getMoney(),character.getScore(),character.getObject());
+
+            Toast.makeText(JapanActivity.this, "저장 완료", Toast.LENGTH_LONG).show();
             }
         });
 

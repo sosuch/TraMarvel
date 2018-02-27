@@ -13,6 +13,8 @@ import java.io.InputStreamReader;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import kr.co.ezenac.sosuch.tramarvel.db.DbManager;
+import kr.co.ezenac.sosuch.tramarvel.model.Character;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.btn_start) Button btn_start;
@@ -20,17 +22,24 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.btn_option) Button btn_option;
     @BindView(R.id.btn_exit) Button btn_exit;
 
+    DbManager dbManager;
+    Character character = new Character();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //기능은 java에서 구현하고 화면은 setContentView로 layout파일을 띄워준다.
         ButterKnife.bind(this);
 
+        dbManager = new DbManager(
+                MainActivity.this,"TraMarvel.db",null,1);
+
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,SelectActivity.class);
                 startActivityForResult(intent,0); // startActivity(intent)는 그냥 넘겨줄 때, startActivityForResult(intent, 0)는 넘겨준 후, 처리해서 다시 모체로 넘겨줄 때 사용한다.
+                //dbManager.insertData(1,100,0,"없음"); //DBManager에 파일 입력
             }
         });  //이 클래스에 존재하는(.this) MainActivity에서 SelectActivity.class로 넘겨준다.
 
@@ -47,8 +56,15 @@ public class MainActivity extends AppCompatActivity {
                     } catch (Exception e) {
                     e.printStackTrace();
                 } */
-
+               character = dbManager.loadData();
+                Intent intent = new Intent(MainActivity.this,JapanActivity.class);
+                intent.putExtra("location",character.getLocation());
+                intent.putExtra("money",character.getMoney());
+                intent.putExtra("score",character.getScore());
+                intent.putExtra("object",character.getObject());
+                startActivityForResult(intent,0);
                 Toast.makeText(MainActivity.this, "불러오기 완료", Toast.LENGTH_LONG).show();
+
             }
         });
 
