@@ -92,12 +92,6 @@ public class JapanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_japan);
 
-        intent = getIntent();
-        ctn_location = intent.getIntExtra("location",1);
-        ctn_money = intent.getIntExtra("money",100);
-        ctn_score = intent.getIntExtra("score",0);
-        ctn_object = intent.getStringExtra("object");
-
         ButterKnife.bind(this);
         final Dice dice = new Dice();
         final Character character = new Character();
@@ -106,6 +100,12 @@ public class JapanActivity extends AppCompatActivity {
         int nMax = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int nCurrentVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC); //볼륨 조절
 
+        intent = getIntent();
+        ctn_location = intent.getIntExtra("location",1);
+        ctn_money = intent.getIntExtra("money",100);
+        ctn_score = intent.getIntExtra("score",0);
+        ctn_object = intent.getStringExtra("object");
+
         character.setLocation(ctn_location);
         character.setMoney(ctn_money);
         character.setScore(ctn_score);
@@ -113,7 +113,6 @@ public class JapanActivity extends AppCompatActivity {
 
         dbManager = new DbManager(
                 JapanActivity.this,"TraMarvel.db",null,1);
-
 
         final Tile tile1 = new Tile(1, "도쿄", "와규", 5, 10, "icons");
 
