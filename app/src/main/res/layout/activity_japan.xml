@@ -795,6 +795,14 @@
                 android:progress="50" />
         </RelativeLayout>
 
+        <Button
+            android:id="@+id/bSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/overray1"
+            android:layout_alignEnd="@+id/speakerBox"
+            android:text="저장" />
+
 
     </RelativeLayout>
 
