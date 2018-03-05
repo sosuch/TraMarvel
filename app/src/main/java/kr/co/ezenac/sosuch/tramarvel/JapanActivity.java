@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -96,10 +97,14 @@ public class JapanActivity extends AppCompatActivity {
         final Dice dice = new Dice();
         final Character character = new Character();
         final Score score = new Score();
-        final AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE); //볼륨 조절
-        int nMax = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        int nCurrentVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC); //볼륨 조절
 
+        /* 볼륨조절 */
+        final AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+        int nMax = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int nCurrentVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        /* 볼륨조절 */
+
+        /* 이어하기 기능 */
         intent = getIntent();
         ctn_location = intent.getIntExtra("location",1);
         ctn_money = intent.getIntExtra("money",100);
@@ -110,17 +115,21 @@ public class JapanActivity extends AppCompatActivity {
         character.setMoney(ctn_money);
         character.setScore(ctn_score);
         character.setObject(ctn_object);
+        /* 이어하기 기능 */
 
+        /* DB 기능 */
         dbManager = new DbManager(
                 JapanActivity.this,"TraMarvel.db",null,1);
+        /* DB 기능 */
 
         final Tile tile1 = new Tile(1, "도쿄", "와규", 5, 10, "icons");
 
+        /* 음향효과 */
         final SoundPool sp = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
-
         final int dice_s = sp.load(this, R.raw.dice, 1);
         final int money_s = sp.load(this, R.raw.money, 1);
         final int select_s = sp.load(this, R.raw.select, 1);
+        /* 음향효과 */
 
         chs = new ImageView[20];
         chs[0] = ch_1;
@@ -229,22 +238,7 @@ public class JapanActivity extends AppCompatActivity {
                             txt_score.setText(character.getScore().toString());
                             sp.play(money_s, 1, 1, 0, 0, 1.0F);
 
-                            if (character.getScore() >= 5) {
-                                android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
-                                alertDialog.setTitle("1번 지역 클리어!!!!" + "\n" + "다음 지역으로 넘어갑니다~~!!");
-
-                                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        sp.play(select_s, 1, 1, 0, 0, 1.0F);
-
-                                        Intent intent = new Intent(JapanActivity.this, NextActivity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                });
-                                alertDialog.show();
-                            }
+                            isCompleteStage(character.getScore());
                         }
                     });
                     alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
@@ -264,48 +258,34 @@ public class JapanActivity extends AppCompatActivity {
             }
         });
 
-        move_Bar.setMax(nMax);                                                                           //볼륨조절 기능
+        move_Bar.setMax(nMax);
         move_Bar.setProgress(nCurrentVolumn);
-
         move_Bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
+                if (progress == 0) {
+                    speaker_On.setBackgroundResource(R.drawable.volume_mute);
+                } else {
+                    speaker_On.setBackgroundResource(R.drawable.volume);
+                }
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
         bSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                /*try {
-                    FileOutputStream fos = openFileOutput("myfile.txt",  //파일명 지정
-                                                                        Context.MODE_APPEND); //저장모드
-                    PrintWriter out = new PrintWriter(fos);
-                    out.println();
-                    out.close();
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }*/
-
-                // public void saveData(int location, int money, int score, String product_name)
             dbManager.saveData(character.getLocation(),character.getMoney(),character.getScore(),character.getObject());
-
             Toast.makeText(JapanActivity.this, "저장 완료", Toast.LENGTH_LONG).show();
             }
         });
-
     }
 
     public void visibleCh(int index) {
@@ -320,5 +300,26 @@ public class JapanActivity extends AppCompatActivity {
             chs[i].setVisibility((View.INVISIBLE));
         }
         chs[index-1].setVisibility(View.VISIBLE);
+    }
+
+    public void isCompleteStage(int score){
+        final SoundPool sp = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
+        final int select_s = sp.load(this, R.raw.select, 1);
+        if (score >= 5) {
+            android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+            alertDialog.setTitle("1번 지역 클리어!!!!" + "\n" + "다음 지역으로 넘어갑니다~~!!");
+
+            alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    sp.play(select_s, 1, 1, 0, 0, 1.0F);
+
+                    Intent intent = new Intent(JapanActivity.this, NextActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+            alertDialog.show();
+        }
     }
 }

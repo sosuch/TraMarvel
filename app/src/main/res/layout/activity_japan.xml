@@ -783,7 +783,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                app:srcCompat="@drawable/loudspeaker" />
+                android:background="@drawable/volume" />
 
             <SeekBar
                 android:id="@+id/move_Bar"
