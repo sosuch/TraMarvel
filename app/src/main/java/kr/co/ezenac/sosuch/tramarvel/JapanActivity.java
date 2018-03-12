@@ -799,7 +799,7 @@ public class JapanActivity extends AppCompatActivity {
 
     public void isGameOver(int money) {
         if (money<0) {
-            Intent intent = new Intent(GameOverActivity.this,OptionActivity.class);
+            Intent intent = new Intent(JapanActivity.this,GameOverActivity.class);
             startActivityForResult(intent,0);
         }
     }
