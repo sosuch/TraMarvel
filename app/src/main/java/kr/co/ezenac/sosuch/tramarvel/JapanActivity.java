@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -81,12 +82,14 @@ public class JapanActivity extends AppCompatActivity {
 
     ImageView[] chs;
     ImageView[] overrays;
+    String[] questions;
     DbManager dbManager;
     Intent intent;
     Integer ctn_location;
     Integer ctn_money;
     Integer ctn_score;
     String ctn_object;
+    ArrayList<Tile> tiles = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,8 +103,8 @@ public class JapanActivity extends AppCompatActivity {
 
         /* 볼륨조절 */
         final AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
-        int nMax = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        int nCurrentVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        final int nMax = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        final int nCurrentVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
         /* 볼륨조절 */
 
         /* 이어하기 기능 */
@@ -122,7 +125,27 @@ public class JapanActivity extends AppCompatActivity {
                 JapanActivity.this,"TraMarvel.db",null,1);
         /* DB 기능 */
 
-        final Tile tile1 = new Tile(1, "도쿄", "와규", 5, 10, "icons");
+
+        final Tile tile0 = new Tile(1, "후쿠오카", "니시테츠 호텔", 10, 5, "icons");
+        final Tile tile1 = new Tile(2, "후쿠오카", "후쿠오카 돈코츠 라멘", 5, 3, "icons");
+        final Tile tile2 = new Tile(3,"후쿠오카", "캐널시티 하카타", 7,3,"icons");
+        final Tile tile3 = new Tile(4,"후쿠오카", "도미 인 프리미엄 하카타", 10,5,"icons");
+        final Tile tile4 = new Tile(5,"후쿠오카", "미즈타키 닭백숙", 5,3,"icons");
+        final Tile tile5 = new Tile(6,"나가사키", "호텔 뉴 나가사키", 10,5,"icons");
+        final Tile tile6 = new Tile(4,"나가사키", "나가사키 카스텔라", 5,3,"icons");
+        final Tile tile7 = new Tile(4,"나가사키", "마가사키 카가미야", 7,3,"icons");
+        final Tile tile8 = new Tile(4,"나가사키", "군함도", 7,3,"icons");
+        final Tile tile9 = new Tile(4,"나가사키", "오우라 천주당", 7,3,"icons");
+        final Tile tile10 = new Tile(4,"벳푸, 유후인", "벳푸 온천마을", 6,7,"icons");
+        final Tile tile11 = new Tile(4,"벳푸, 유후인", " ", 10,5,"icons");
+        final Tile tile12 = new Tile(4,"벳푸, 유후인", "유후인 온천마을", 6,7,"icons");
+        final Tile tile13 = new Tile(4,"벳푸, 유후인", " ", 10,5,"icons");
+        final Tile tile14 = new Tile(4,"벳푸, 유후인", "쿠로가 마을", 7,3,"icons");
+        final Tile tile15 = new Tile(4,"마쓰야마", "입욕매너", 10,0,"icons");
+        final Tile tile16 = new Tile(4,"마쓰야마", "도고온천",6 ,7,"icons");
+        final Tile tile17 = new Tile(4,"마쓰야마", " ", 10,0,"icons");
+        final Tile tile18 = new Tile(4,"마쓰야마", "고양이섬", 7,3,"icons");
+        final Tile tile19 = new Tile(4,"마쓰야마", " ", 10,0,"icons");
 
         /* 음향효과 */
         final SoundPool sp = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
@@ -175,6 +198,28 @@ public class JapanActivity extends AppCompatActivity {
         overrays[18] = overray19;
         overrays[19] = overray20;
 
+        questions = new String[20];
+        questions[0] = "숙소: 니시테츠 호텔에 숙박 하시겠습니까?";
+        questions[1] = "식사: 후쿠오카 돈코츠 라멘을 드시겠습니까?";
+        questions[2] = "관광지: 캐널시티 하카타 관광을 하시겠습니까?";
+        questions[3] = "숙소: 도미 인 프리미엄 하카타에 숙박 하시겠습니까?";
+        questions[4] = "식사: 미즈타키 닭백숙을 드시겠습니까?";
+        questions[5] = "숙소: 호텔 뉴 나가사키에 숙박 하시겠습니까?";
+        questions[6] = "식사: 나가사키 카스텔라를 드시겠습니까?";
+        questions[7] = "관광지: 마가사키 카가미야 관광을 하시겠습니까?";
+        questions[8] = "관광지: 군함도를 관광 하시겠습니까?";
+        questions[9] = "관광지: 오우라 천주당을 관광 하시겠습니까?";
+        questions[10] = "온천: 벳푸 온천마을에서 온천을 하시겠습니까?";
+        questions[11] = "숙소: ";
+        questions[12] = "온천: 유후인 온천마을에서 온천을 하시겠습니까?";
+        questions[13] = "숙소: ";
+        questions[14] = "관광지: 쿠로가 마을에서 관광을 하시겠습니까?";
+        questions[15] = "입욕매너";
+        questions[16] = "온천: 도고온천에서 온천을 하시겠습니까?";
+        questions[17] = "문제";
+        questions[18] = "관광지: 고양이 섬을 관광 하시겠습니까?";
+        questions[19] = "문제";
+
         visibleCh(character.getLocation());
         visibleOverrray(character.getLocation());
 
@@ -224,10 +269,33 @@ public class JapanActivity extends AppCompatActivity {
                     img_dice2.setBackgroundResource(R.drawable.dice_6);
                 }
 
-                if (character.getLocation() == 1) {
-
+                if (character.getLocation() == 1 ){
                     android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
-                    alertDialog.setTitle("와규를 구입하시겠습니까?");
+                    alertDialog.setTitle(questions[0]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile0.getProduct_price());
+                            character.setScore(character.getScore() + tile0.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 2 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[1]);
 
                     alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
                         @Override
@@ -247,13 +315,419 @@ public class JapanActivity extends AppCompatActivity {
                         }
                     });
                     alertDialog.show();
+                }
 
-                } else {
+                if (character.getLocation() == 3 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[2]);
 
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile2.getProduct_price());
+                            character.setScore(character.getScore() + tile2.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 4 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[3]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile3.getProduct_price());
+                            character.setScore(character.getScore() + tile3.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 5 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[4]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile4.getProduct_price());
+                            character.setScore(character.getScore() + tile4.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 6 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[5]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile5.getProduct_price());
+                            character.setScore(character.getScore() + tile5.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 7 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[6]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile6.getProduct_price());
+                            character.setScore(character.getScore() + tile6.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 8){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[7]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile7.getProduct_price());
+                            character.setScore(character.getScore() + tile7.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 9 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[8]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile8.getProduct_price());
+                            character.setScore(character.getScore() + tile8.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 10 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[9]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile9.getProduct_price());
+                            character.setScore(character.getScore() + tile9.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 11 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[10]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile10.getProduct_price());
+                            character.setScore(character.getScore() + tile10.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 12){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[11]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile11.getProduct_price());
+                            character.setScore(character.getScore() + tile11.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 13 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[10]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile12.getProduct_price());
+                            character.setScore(character.getScore() + tile12.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 14 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[13]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile13.getProduct_price());
+                            character.setScore(character.getScore() + tile13.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 15){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[14]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile14.getProduct_price());
+                            character.setScore(character.getScore() + tile14.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 16 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[15]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile15.getProduct_price());
+                            character.setScore(character.getScore() + tile15.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 17 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[16]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile16.getProduct_price());
+                            character.setScore(character.getScore() + tile16.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 18 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[17]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile17.getProduct_price());
+                            character.setScore(character.getScore() + tile17.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
+                }
+
+                if (character.getLocation() == 19 ){
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
+                    alertDialog.setTitle(questions[18]);
+
+                    alertDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            character.setMoney(character.getMoney() - tile18.getProduct_price());
+                            character.setScore(character.getScore() + tile18.getProduct_score());
+                            txt_money.setText(character.getMoney().toString());
+                            txt_score.setText(character.getScore().toString());
+                            sp.play(money_s, 1, 1, 0, 0, 1.0F);
+
+                            isCompleteStage(character.getScore());
+                        }
+                    });
+                    alertDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialog.show();
                 }
 
                 visibleCh(character.getLocation());
                 visibleOverrray(character.getLocation());
+
 
             }
         });
@@ -282,8 +756,8 @@ public class JapanActivity extends AppCompatActivity {
         bSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            dbManager.saveData(character.getLocation(),character.getMoney(),character.getScore(),character.getObject());
-            Toast.makeText(JapanActivity.this, "저장 완료", Toast.LENGTH_LONG).show();
+                dbManager.saveData(character.getLocation(),character.getMoney(),character.getScore(),character.getObject());
+                Toast.makeText(JapanActivity.this, "저장 완료", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -305,7 +779,7 @@ public class JapanActivity extends AppCompatActivity {
     public void isCompleteStage(int score){
         final SoundPool sp = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
         final int select_s = sp.load(this, R.raw.select, 1);
-        if (score >= 5) {
+        if (score >= 100) {
             android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(JapanActivity.this);
             alertDialog.setTitle("1번 지역 클리어!!!!" + "\n" + "다음 지역으로 넘어갑니다~~!!");
 
@@ -320,6 +794,13 @@ public class JapanActivity extends AppCompatActivity {
                 }
             });
             alertDialog.show();
+        }
+    }
+
+    public void isGameOver(int money) {
+        if (money<0) {
+            Intent intent = new Intent(GameOverActivity.this,OptionActivity.class);
+            startActivityForResult(intent,0);
         }
     }
 }
